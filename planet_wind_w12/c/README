@@ -1,0 +1,7 @@
+run on Harvard Cannon compute cluster using the following athena++ setup:
+https://github.com/morganemacleod/athena/blob/master/src/pgen/planet_wind_lambda_star_origin.cpp
+
+Configuration command:
+python configure.py --prob planet_wind_lambda_star_origin --coord spherical_polar -mpi -hdf5 --hdf5_path $HDF5_HOME --nscalars=2 --mpiccmd mpicxx --cflag " -xCORE-AVX512"
+
+(note: requires the https://github.com/morganemacleod/athena athena fork) 

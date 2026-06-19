@@ -1,0 +1,3 @@
+run on Harvard Cannon compute cluster using the following athena++ setup:
+https://github.com/morganemacleod/athena/blob/master/src/pgen/planet_wind_lambda_star_origin.cpp
+
