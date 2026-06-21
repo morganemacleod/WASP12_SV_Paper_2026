@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -J pw           # Job name
+#SBATCH -o pw.o%j       # Name of stdout output file
+#SBATCH -e pw.e%j       # Name of stderr error file
+#SBATCH -p sapphire ###itc_cluster  ####sapphire          # Queue (partition) name
+#SBATCH -N 6               # Total # of nodes 
+#SBATCH --ntasks-per-node 112 
+#SBATCH --mem 990GB       # memory per node, check partitions to match
+#SBATCH -t 11:59:00        # Run time (hh:mm:ss)
+#SBATCH --mail-user=morgan.macleod@cfa.harvard.edu
+#SBATCH --mail-type=all    # Send email at begin and end of job
+
+# Other commands must follow all #SBATCH directives...
+source /n/home01/mmacleod/athena_environment_mpich.sh
+module list
+pwd
+date
+
+# Launch MPI code... (pmi2 for intel mpi, pmix for openmpi)
+srun -n $SLURM_NTASKS  --mpi=pmix /n/home01/mmacleod/athena/bin/athena -i athinput.w12 -t 11:50:00
